@@ -23,9 +23,9 @@ func main() {
 
 				for j := 0; j < len(data); j++ {
 					output, err := svc.GetRecord(&sagemakerfeaturestoreruntime.GetRecordInput{
-						FeatureGroupName: aws.String("group_name"),
+						FeatureGroupName: aws.String(fsGroupName),
 						FeatureNames: []*string{
-							aws.String("name_1"),
+							aws.String("name_1"), // TODO put features names
 							aws.String("name_2"),
 							aws.String("name_3"),
 						},
@@ -46,6 +46,11 @@ func main() {
 	wg.Wait()
 }
 
+var fsGroupName = "TODO"
+
 var data = []string{
+	// TODO add list of Ids to fetch
 	"a",
 }
+
+// Run = go run main.go
